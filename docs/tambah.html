@@ -1,0 +1,62 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Tambah Device ke Aplication · AntaresIotPlatform</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Internet of Things bersangkutan dengan benda-benda atau things. Pada segmen ini, kita akan membuat suatu device untuk tempat menaruh data."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Tambah Device ke Aplication · AntaresIotPlatform"/><meta property="og:type" content="website"/><meta property="og:url" content="https://antaresiotplatform.github.io/antares/"/><meta property="og:description" content="Internet of Things bersangkutan dengan benda-benda atau things. Pada segmen ini, kita akan membuat suatu device untuk tempat menaruh data."/><meta property="og:image" content="https://antaresiotplatform.github.io/antares/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://antaresiotplatform.github.io/antares/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/antares/img/antares.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://antaresiotplatform.github.io/antares/blog/atom.xml" title="AntaresIotPlatform Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://antaresiotplatform.github.io/antares/blog/feed.xml" title="AntaresIotPlatform Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/antares/js/scrollSpy.js"></script><link rel="stylesheet" href="/antares/css/main.css"/><script src="/antares/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/antares/"><img class="logo" src="/antares/img/antares.png" alt="AntaresIotPlatform"/><h2 class="headerTitleWithLogo">AntaresIotPlatform</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/antares/index" target="_self">Home</a></li><li class="siteNavGroupActive"><a href="/antares/docs/doc1" target="_self">Documentation</a></li><li class=""><a href="/antares/docs/doc4" target="_self">Information</a></li><li class=""><a href="/antares/help" target="_self">Comunity</a></li><li class=""><a href="/antares/blog/" target="_self">Contact</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Antares </span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Antares </h3><ul class=""><li class="navListItem"><a class="navItem" href="/antares/docs/doc1">Pendahuluan</a></li><li class="navListItem"><a class="navItem" href="/antares/docs/regis">Registrasi</a></li><li class="navListItem"><a class="navItem" href="/antares/docs/buatapp">Buat App</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/antares/docs/tambah">Tambah Device ke Aplication</a></li><li class="navListItem"><a class="navItem" href="/antares/docs/quik">Quickstart</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Tambah Device ke Aplication</h1></header><article><div><span><p>Internet of Things bersangkutan dengan benda-benda atau things. Pada segmen ini, kita akan membuat suatu device untuk tempat menaruh data.</p>
+<p>Halaman di bawah akan muncul. Silahkan klik Add Device. Selain klik Add Device untuk menambahkan device, anda juga dapat membuat device dengan menggunakan RESTful API pada segmen HTTP API. Anda juga dapat melakukan subscription ke device, jadi jika ada data baru yang masuk ke device, anda akan mendapatkan notifikasi. Anda dapat memanfaatkan notifikasi tersebut untuk membuat logika pada program yang anda buat.</p>
+<p>Ambil nama untuk device anda. Dalam kasus ini, kami akan beri nama &quot;SmartEye1&quot;</p>
+<p>Setelah device berhasil dibuat, akan muncul di dashboard anda seperti berikut.</p>
+<p>Anda telah sukses membuat sebuah device. Ikuti langkah berikutnya untuk menaruh data pada device yang telah anda buat.</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/antares/docs/buatapp"><span class="arrow-prev">← </span><span>Buat App</span></a><a class="docs-next button" href="/antares/docs/quik"><span>Quickstart</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/antares/" class="nav-home"><img src="/antares/img/antares.png" alt="AntaresIotPlatform" width="66" height="58"/></a><div><h5>Docs</h5><a href="/antares/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/antares/docs/en/doc2.html">Guides (or other categories)</a><a href="/antares/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/antares/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/antares/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/antares/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 Your Name or Your Company Name</section></footer></div></body></html>
